@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <Content Remove="Pages\Dashboard.razor" />
+    <Content Remove="wwwroot\css\Login.razor.css" />
+    <Content Remove="wwwroot\css\Weather.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +28,8 @@
 
   <ItemGroup>
     <None Include="Pages\Dashboard.razor" />
+    <None Include="wwwroot\css\Login.razor.css" />
+    <None Include="wwwroot\css\Weather.razor.css" />
     <None Include="wwwroot\index.html" />
   </ItemGroup>
 

@@ -4,13 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LearnBlazor</title>
-    <base href="/SampleBlazor/" />
+    <base href="/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/Login.razor.css" />
+          <link rel="stylesheet" href="css/Weather.razor.css"/>
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="LearnBlazor.styles.css" rel="stylesheet" />
 </head>
+<style>
+    html, body {
+        display: flex;
+        justify-content: center;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 15px;
+        min-height: 95vh;
+        margin: 0px;
+        padding: 0px;
+        height:100vh;
+    }
 
+
+    body {
+        background: rgb(2,0,36);
+        background: linear-gradient(140deg, rgba(0,212,255,1) 0%, rgba(173,34,194,1) 35%, rgba(0,212,255,1) 100%);
+    }
+
+</style>
 <body>
     <div id="app">
         <svg class="loading-progress">

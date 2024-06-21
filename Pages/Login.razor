@@ -1,0 +1,72 @@
+﻿@using LearnBlazor.TestClass
+@inject NavigationManager _navigationManager
+@inherits LayoutComponentBase
+@page "/"
+
+<PageTitle>Login</PageTitle>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <EditForm Model="@login" method="post" FormName="@($"Login-{login.UserName}")" OnValidSubmit="Submit">
+                    <div class="login">
+                        <div class="login__field">
+                            <i class="login__icon fa fa-user"></i>
+                            <input type="text" @bind-value=login.UserName class="login__input" placeholder="User name / Email" required />
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fa fa-lock"></i>
+                            <input type="password" @bind-value=login.Password class="login__input" placeholder="Password" required />
+                        </div>
+                        <button class="button login__submit" style="text-align:center">
+                            <span class="button__text">Login Now</span>
+                            <i class="button__icon fa fa-chevron-right" style="color:white"></i>
+                        </button>
+                    </div>
+                </EditForm>
+                <div class="social-login">
+                    <h4>log in via</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-login__icon fa fa-instagram"></a>
+                        <a href="#" class="social-login__icon fa fa-facebook"></a>
+                        <a href="#" class="social-login__icon fa fa-twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+            @if (isValidated)
+            {
+                <div class="spinner"></div>
+                <p style="color:white; background-color:limegreen; border-radius:8px; width:120px; text-align: center; margin-left:120px">Success @login.UserName</p>
+                <NavLink href="weather" ActiveClass="btn btn-primary"></NavLink>
+
+            }
+        </div>
+    </div>
+
+@code {
+    LoginModel login = new LoginModel();
+    public string submitResult;
+    bool isValidated = false;
+    private void Submit()
+    {
+        try
+        {
+            bool validateForm = true;
+            isValidated = validateForm;
+            submitResult = validateForm ? "Success" : "Failed";
+            Console.WriteLine(validateForm);
+            _navigationManager.NavigateTo("weather");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+    }
+    // public void NavigateToHome() => navigationManager.NavigateTo("/");
+}
